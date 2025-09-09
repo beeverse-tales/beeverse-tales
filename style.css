@@ -441,3 +441,10 @@ img {
     max-width: 90%;
   }
 }
+/* Make homepage images small thumbnails */
+img {
+  max-width: 200px;  /* change this number to make them bigger/smaller */
+  height: auto;
+  display: block;
+  margin: 10px auto;  /* adds space above/below and centers */
+}
