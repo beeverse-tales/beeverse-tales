@@ -427,3 +427,17 @@ body.dark-mode .cta-btn:hover {
 .support-btn:hover {
   background-color: #128C7E;
 }
+/* Make homepage images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centers the image */
+}
+
+/* On phones, shrink images further */
+@media (max-width: 768px) {
+  img {
+    max-width: 90%;
+  }
+}
