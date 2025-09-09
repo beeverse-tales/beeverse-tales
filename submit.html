@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit a Story | BeeVerse Tales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #d4af37;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #5c3a00;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: #d4af37;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #darkModeToggle {
+      background: none;
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      color: #d4af37;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    #darkModeToggle:hover {
+      background-color: #d4af37;
+      color: #1a1a1a;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #d4af37;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+      color: #e2c78c;
+    }
+
+    input, textarea {
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      background-color: #2a2a2a;
+      color: #d4af37;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #bfa84f;
+    }
+
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: #a67c00;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d4af37;
+      color: #1a1a1a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background-color: #fafaf5;
+      color: #3b2f00;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #d4af37;
+      color: #3b2f00;
+    }
+
+    body.dark-mode nav a,
+    body.dark-mode #darkModeToggle {
+      color: #3b2f00;
+      border-color: #3b2f00;
+    }
+
+    body.dark-mode #darkModeToggle:hover {
+      background-color: #3b2f00;
+      color: #fff;
+    }
+
+    body.dark-mode input,
+    body.dark-mode textarea {
+      background-color: #fff;
+      color: #3b2f00;
+      border-color: #a67c00;
+    }
+
+    body.dark-mode input::placeholder,
+    body.dark-mode textarea::placeholder {
+      color: #5c3a00;
+    }
+
+    body.dark-mode button {
+      background-color: #5c3a00;
+    }
+
+    body.dark-mode button:hover {
+      background-color: #a67c00;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/beeverse-logo.png" alt="BeeVerse Tales Logo" />
+      <h1>BeeVerse Tales</h1>
+    </div>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="submit.html">Submit a Story</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+       <a href="poems.html">Poems</a>
+      <a href="research.html">Research & Blogs</a>
+      <a href="author.html">Author</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Submit Your Story</h2>
+    <form id="storyForm" action="#" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Jane Writer" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="title">Story Title</label>
+      <input type="text" id="title" name="title" placeholder="The Golden Thread" required />
+
+      <label for="story">Your Story</label>
+      <textarea id="story" name="story" rows="10" placeholder="Start writing your story here..." required></textarea>
+
+      <button type="submit">📤 Submit Story</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BeeVerse Tales. All rights reserved. | Contact: <a href="mailto:beeversetales@gmail.com" style="color: inherit;">beeversetales@gmail.com</a></p>
+  </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const currentMode = localStorage.getItem('mode');
+    if (currentMode === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️ Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️ Light Mode';
+        localStorage.setItem('mode', 'dark');
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+        localStorage.setItem('mode', 'light');
+      }
+    });
+  </script>
+
+  <!-- Email Validation -->
+  <script>
+    const form = document.getElementById('storyForm');
+    const emailInput = document.getElementById('email');
+
+    form.addEventListener('submit', function (e) {
+      const emailValue = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(emailValue)) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+        emailInput.focus();
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
