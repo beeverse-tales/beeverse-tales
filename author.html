@@ -131,6 +131,28 @@
     body.dark-mode p {
       color: #3b2f00;
     }
+   .author-album {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.album-slider {
+  display: flex;
+  flex-wrap: nowrap;          /* keep all images in one row */
+  gap: 10px;                  /* space between images */
+  overflow-x: auto;           /* allow horizontal scroll */
+  padding: 10px 0;
+}
+
+.album-slider img {
+  width: 100px;               /* smaller thumbnails */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex: 0 0 auto;             /* prevents shrinking */
+}
+
+
   </style>
 </head>
 <body>
@@ -265,6 +287,19 @@
     My journey continues — and so can yours.  
     I hope you’ll find a spark of motivation here in BeeVerse Tales 💛.  
   </p>
+</section>
+<section class="author-album">
+  <h2>Bredar Wangari’s Album</h2>
+  <div class="album-slider">
+    <img src="images/slide20.jpeg" alt="Bredar 20">
+    <img src="images/slide21.jpeg" alt="Bredar 21">
+    <img src="images/slide24.jpeg" alt="Bredar 24">
+    <img src="images/slide23.jpeg" alt="Bredar 23">
+    <img src="images/slide15.jpeg" alt="Bredar 15">
+    <img src="images/slide22.jpeg" alt="Bredar 22">
+    <img src="images/slide13.jpeg" alt="Bredar 13">
+    <img src="images/slide18.jpeg" alt="Bredar 18">
+  </div>
 </section>
 
 <!-- Closing Note -->
