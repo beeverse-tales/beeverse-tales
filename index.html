@@ -105,6 +105,42 @@ img {
   display: block;
   margin: 10px auto;  /* adds space above/below and centers */
 }
+.submit-slider {
+  display: flex;               /* arrange images in a row */
+  justify-content: space-between; /* space between images */
+  gap: 10px;                   /* extra spacing if needed */
+  margin-bottom: 15px;         /* space below row */
+}
+
+.submit-slider img.submit-img {
+  width: 32%;                  /* 3 images fit in one row */
+  height: auto;
+  border-radius: 10px;         /* optional for style */
+}
+.story-love-slider-top {
+  display: flex;
+  justify-content: space-between; /* 2 images side by side */
+  gap: 10px;
+  margin-bottom: 10px; /* space below top row */
+}
+
+.story-love-slider-bottom {
+  display: flex;
+  justify-content: center; /* center the single image */
+  margin-bottom: 15px; /* space below bottom row */
+}
+
+.story-love-slider-top img,
+.story-love-slider-bottom img {
+  width: 48%;   /* top row images take roughly half each */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* bottom row image takes smaller width */
+.story-love-slider-bottom img {
+  width: 32%;   /* adjust size as needed */
+}
 
   </style>
 </head>
@@ -162,12 +198,17 @@ img {
       Dive into a world of imagination and storytelling. Every voice matters, 
       and every tale is a golden thread in the universe of creativity.
     </p>
-    <section class="submit-story">
-  <img src="images/slide1.jpeg" alt="Submit Your Story" class="submit-img">
+<section class="submit-story">
+  <div class="submit-slider">
+    <img src="images/slide1.jpeg" alt="Submit Your Story" class="submit-img">
+    <img src="images/slide10.jpeg" alt="Submit Your Story" class="submit-img">
+    <img src="images/slide12.jpeg" alt="Submit Your Story" class="submit-img">
+  </div>
   <h2>Join Us!</h2>
   <p>Have a story or poem? Submit it and be part of BeeVerse Tales.</p>
   <a href="submit.html" class="btn">Submit Your Story</a>
 </section>
+
 <section class="contact-link">
   <p>For more information about us, <a href="contact.html" class="contact-btn">Contact Us</a>.</p>
 </section>
@@ -216,13 +257,22 @@ img {
 </section>
 
 
-  <section class="story-love-slide">
-  <img src="images/slide2.jpeg" alt="Founded with love for storytelling" class="story-love-img">
+<section class="story-love-slide">
+  <!-- Top row: 2 images -->
+  <div class="story-love-slider-top">
+    <img src="images/slide2.jpeg" alt="Slide 2" class="story-love-img">
+    <img src="images/slide14.jpeg" alt="Slide 14" class="story-love-img">
+  </div>
+
+  <!-- Bottom row: 1 image -->
+  <div class="story-love-slider-bottom">
+    <img src="images/slide11.jpeg" alt="Slide 11" class="story-love-img">
+  </div>
+
   <h2>Founded with Love for Storytelling</h2>
   <p>BeeVerse Tales was created to celebrate creativity and connect readers and writers. Share your thoughts with us!</p>
   <a href="stories.html" class="btn">Leave a Comment</a>
 </section>
-
 
 <!-- Author Slide Section -->
 <section class="author-slide">

@@ -448,3 +448,15 @@ img {
   display: block;
   margin: 10px auto;  /* adds space above/below and centers */
 }
+.submit-slider {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* space between images */
+  margin-bottom: 15px; /* optional spacing below slider */
+}
+
+.submit-slider img.submit-img {
+  width: 32%; /* 3 images per row */
+  height: auto;
+  border-radius: 10px; /* optional styling */
+}
