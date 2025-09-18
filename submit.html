@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Submit a Story | BeeVerse Tales</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       background-color: #1a1a1a;
@@ -74,6 +73,7 @@
       max-width: 800px;
       margin: 2rem auto;
       padding: 1rem;
+      text-align: center;
     }
 
     h2 {
@@ -83,31 +83,6 @@
       margin-bottom: 1.5rem;
       color: #d4af37;
       text-align: center;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    label {
-      font-weight: bold;
-      color: #e2c78c;
-    }
-
-    input, textarea {
-      padding: 0.7rem;
-      font-size: 1rem;
-      border: 1px solid #d4af37;
-      border-radius: 6px;
-      background-color: #2a2a2a;
-      color: #d4af37;
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #bfa84f;
     }
 
     button {
@@ -155,18 +130,6 @@
       color: #fff;
     }
 
-    body.dark-mode input,
-    body.dark-mode textarea {
-      background-color: #fff;
-      color: #3b2f00;
-      border-color: #a67c00;
-    }
-
-    body.dark-mode input::placeholder,
-    body.dark-mode textarea::placeholder {
-      color: #5c3a00;
-    }
-
     body.dark-mode button {
       background-color: #5c3a00;
     }
@@ -191,37 +154,18 @@
       <a href="submit.html">Submit a Story</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-       <a href="poems.html">Poems</a>
+      <a href="poems.html">Poems</a>
       <a href="research.html">Research & Blogs</a>
       <a href="author.html">Author</a>
     </nav>
   </header>
 
   <main>
-  <h2>Submit Your Story</h2>
-  <form name="submit-story" method="POST" data-netlify="true">
-    <!-- hidden input required by Netlify -->
-    <input type="hidden" name="form-name" value="submit-story">
-
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" placeholder="Jane Writer" required />
-
-    <label for="email">Your Email</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-    <label for="title">Story Title</label>
-    <input type="text" id="title" name="title" placeholder="The Golden Thread" required />
-
-    <label for="story">Your Story</label>
-    <textarea id="story" name="story" rows="10" placeholder="Start writing your story here..." required></textarea>
-
-    <button type="submit">📤 Submit Story</button>
-
-    <!-- confirmation message -->
-    <p id="submit-message" style="display:none; color: green;">Submitted!</p>
-  </form>
-</main>
-
+    <h2>Submit Your Story</h2>
+    <a href="mailto:beeversetales@gmail.com?subject=Story Submission for BeeVerse Tales" style="text-decoration: none;">
+      <button type="button">📧 Email Your Story</button>
+    </a>
+  </main>
 
   <footer>
     <p>&copy; 2025 BeeVerse Tales. All rights reserved. | Contact: <a href="mailto:beeversetales@gmail.com" style="color: inherit;">beeversetales@gmail.com</a></p>
@@ -247,42 +191,5 @@
       }
     });
   </script>
-
-  <!-- Email Validation -->
-  <script>
-    const form = document.getElementById('storyForm');
-    const emailInput = document.getElementById('email');
-
-    form.addEventListener('submit', function (e) {
-      const emailValue = emailInput.value.trim();
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailPattern.test(emailValue)) {
-        e.preventDefault();
-        alert('Please enter a valid email address.');
-        emailInput.focus();
-      }
-    });
-  </script>
-<script>
-  const submitForm = document.querySelector('form[name="submit-story"]');
-  const submitMsg = document.getElementById('submit-message');
-
-  submitForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    fetch('/', {
-      method: 'POST',
-      body: new FormData(submitForm)
-    })
-    .then(() => {
-      submitMsg.style.display = 'block'; // show confirmation
-      submitForm.reset(); // clear form
-    })
-    .catch(err => alert('Error: ' + err));
-  });
-</script>
-
 </body>
 </html>
-
-
