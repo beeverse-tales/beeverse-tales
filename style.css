@@ -1,0 +1,462 @@
+body {
+  background-color: #1a1a1a;
+  color: #d4af37;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #1a1a1a;
+  color: #d4af37;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 0;
+  color: #d4af37;
+}
+
+nav a {
+  color: #d4af37;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#darkModeToggle {
+  background: none;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  color: #d4af37;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+
+.intro {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2c78c;
+}
+
+.slider {
+  max-height: 350px;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  animation: slide 15s infinite linear;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay h2 {
+  font-size: 1.8rem;
+  font-family: 'Playfair Display', serif;
+  color: #ffeaa7;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: #d4af37;
+  color: #1a1a1a;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: #b8a17a;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+body.dark-mode {
+  background-color: #fafaf5;
+  color: #3b2f00;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #d4af37;
+  color: #3b2f00;
+}
+
+body.dark-mode nav a {
+  color: #3b2f00;
+}
+
+body.dark-mode #darkModeToggle {
+  border-color: #3b2f00;
+  color: #3b2f00;
+}
+
+body.dark-mode #darkModeToggle:hover {
+  background-color: #3b2f00;
+  color: #fff;
+}
+
+body.dark-mode .intro p {
+  color: #3b2f00;
+}
+
+body.dark-mode .overlay h2 {
+  color: #3b2f00;
+}
+
+body.dark-mode .btn {
+  background-color: #3b2f00;
+  color: #fff;
+}
+/* Hero */
+.hero {
+  position: relative;
+  padding: 6rem 1rem 5rem;
+  text-align: center;
+  background:
+    radial-gradient(1200px 600px at 50% -20%, rgba(212, 175, 55, 0.15), transparent 60%),
+    linear-gradient(180deg, #292929, #141414);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 0.75rem;
+  color: #f5e8c8;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #e9d9a8;
+  opacity: 0.95;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #d4af37;
+  border-radius: 999px;
+  background: #d4af37;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+
+/* Light mode variant */
+body.dark-mode .hero {
+  background:
+    radial-gradient(1000px 500px at 50% -20%, rgba(59, 47, 0, 0.08), transparent 60%),
+    linear-gradient(180deg, #fffdf6, #f7f3e6);
+  border-bottom-color: rgba(59, 47, 0, 0.15);
+}
+body.dark-mode .hero h2 { color: #3b2f00; }
+body.dark-mode .hero p  { color: #3b2f00; opacity: 0.85; }
+body.dark-mode .cta-btn {
+  background: #3b2f00;
+  border-color: #3b2f00;
+  color: #fffdf6;
+}
+body.dark-mode .cta-btn:hover {
+  box-shadow: 0 8px 20px rgba(59, 47, 0, 0.25);
+}
+.hero h2 {
+  color: #ffffff; /* pure white */
+}
+
+.hero p {
+  color: #ffffff; /* pure white */
+  opacity: 1;     /* remove the slight fade */
+}
+
+.contact-link {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+}
+
+.contact-link a.contact-btn {
+  color: #b8860b;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.contact-link a.contact-btn:hover {
+  color: #8b6508;
+}
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 250px;
+  max-width: 80%;
+}
+
+.subscribe-form input[type="email"]:focus {
+  outline: none;
+  border-color: #b8860b;
+  box-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
+}
+
+.subscribe-form .btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.story-love-slide {
+  text-align: center;
+  background: #fff8f0; /* soft cream/pink */
+  padding: 3rem 2rem;
+  margin: 3rem 0;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.story-love-img {
+  width: 300px;
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.story-love-slide h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.story-love-slide p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.story-love-slide .btn {
+  background: #b8860b;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.story-love-slide .btn:hover {
+  background: #8b6508;
+}
+/* Author Slide Section */
+.author-slide {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.author-slide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.author-slide-img {
+  width: 100%;
+  height: 350px; /* smaller height */
+  object-fit: cover; /* keeps image neat */
+  border-radius: 10px;
+}
+
+.slide-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.slide-caption h2 {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+  color: #d4af37;
+}
+
+.author-btn {
+  background-color: #a67c00;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.author-btn:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+.support-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #2a2a2a;
+  margin-top: 2rem;
+  border-top: 2px solid #d4af37;
+}
+
+.support-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+.support-section p {
+  font-size: 1.1rem;
+  color: #e2c78c;
+  margin-bottom: 1.5rem;
+}
+
+.support-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #25D366; /* WhatsApp green */
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.support-btn:hover {
+  background-color: #128C7E;
+}
+/* Make homepage images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centers the image */
+}
+
+/* On phones, shrink images further */
+@media (max-width: 768px) {
+  img {
+    max-width: 90%;
+  }
+}
+/* Make homepage images small thumbnails */
+img {
+  max-width: 200px;  /* change this number to make them bigger/smaller */
+  height: auto;
+  display: block;
+  margin: 10px auto;  /* adds space above/below and centers */
+}
+.submit-slider {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* space between images */
+  margin-bottom: 15px; /* optional spacing below slider */
+}
+
+.submit-slider img.submit-img {
+  width: 32%; /* 3 images per row */
+  height: auto;
+  border-radius: 10px; /* optional styling */
+}

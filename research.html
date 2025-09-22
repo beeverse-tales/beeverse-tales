@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research | BeeVerse Tales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #d4af37;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header, footer {
+      background-color: #5c3a00;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: #d4af37;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #darkModeToggle {
+      background: none;
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      color: #d4af37;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #d4af37;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #e2c78c;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #fafaf5;
+      color: #3b2f00;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #d4af37;
+      color: #3b2f00;
+    }
+
+    body.dark-mode nav a,
+    body.dark-mode #darkModeToggle {
+      color: #3b2f00;
+      border-color: #3b2f00;
+    }
+
+    body.dark-mode #darkModeToggle:hover {
+      background-color: #3b2f00;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BeeVerse Tales</h1>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="poems.html">Poems</a>
+      <a href="submit.html">Submit a Story</a>
+      <a href="about.html">About</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact</a>
+      <a href="research.html">Research & Blogs</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Research Page</h2>
+    <p>📖 Our research articles are brewing... <br> Stay tuned, something exciting is coming soon!</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BeeVerse Tales. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const currentMode = localStorage.getItem('mode');
+    if (currentMode === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️ Light Mode';
+    }
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️ Light Mode';
+        localStorage.setItem('mode', 'dark');
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+        localStorage.setItem('mode', 'light');
+      }
+    });
+  </script>
+</body>
+</html>

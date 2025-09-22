@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Author | BeeVerse Tales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #d4af37;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #5c3a00;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: #d4af37;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #darkModeToggle {
+      background: none;
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      color: #d4af37;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    #darkModeToggle:hover {
+      background-color: #d4af37;
+      color: #1a1a1a;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #d4af37;
+    }
+
+    .author-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid #d4af37;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e2c78c;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background-color: #fafaf5;
+      color: #3b2f00;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #d4af37;
+      color: #3b2f00;
+    }
+
+    body.dark-mode nav a,
+    body.dark-mode #darkModeToggle {
+      color: #3b2f00;
+      border-color: #3b2f00;
+    }
+
+    body.dark-mode #darkModeToggle:hover {
+      background-color: #3b2f00;
+      color: #fff;
+    }
+
+    body.dark-mode p {
+      color: #3b2f00;
+    }
+   .author-album {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.album-slider {
+  display: flex;
+  flex-wrap: nowrap;          /* keep all images in one row */
+  gap: 10px;                  /* space between images */
+  overflow-x: auto;           /* allow horizontal scroll */
+  padding: 10px 0;
+}
+
+.album-slider img {
+  width: 100px;               /* smaller thumbnails */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex: 0 0 auto;             /* prevents shrinking */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/beeverse-logo.png" alt="BeeVerse Tales Logo" />
+      <h1>BeeVerse Tales</h1>
+    </div>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="submit.html">Submit a Story</a>
+      <a href="poems.html">Poems</a>
+      <a href="research.html">Research & Blogs</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="author.html">Author</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Meet the Author</h2>
+    <img src="images/slide3.jpeg" alt="Author Photo" class="author-photo" />
+    <p>
+      Hi, I’m <strong>Bredar Wangari</strong>, also known as <em>Wangari Bree or you can call me BreezyBee</em> 🐝.  
+      I’m the creator of <strong>BeeVerse Tales</strong> — a planet where stories, poems,  
+      research, and creativity come alive. Writing is not just my passion,  
+      it’s the way I breathe life into thoughts, laughter, and dreams.  
+    </p>
+    <p>
+      From heartfelt poetry to humorous pranks, from creative stories to research,  
+      BeeVerse Tales is my canvas. I hope you’ll explore, enjoy, and maybe even  
+      submit your own spark of imagination ✨.
+    </p>
+
+  <!-- Introduction Section -->
+  <section class="author-section">
+    <h2>Introduction</h2>
+    <img src="images/slide5.jpeg" alt="Mimi the Cat" class="author-photo" />
+    <p>
+      I’m a writer, web developer, book editor,  
+      and proud cat mom. My partner in creativity is <strong>Mimi</strong>,  
+      a fluffy ball of sunshine who believes she runs this place (and honestly, she does 😸).  
+    </p>
+  </section>
+
+  <!-- Writing Journey & Inspirations Section -->
+<section class="author-section">
+  <h2>My Writing Journey</h2>
+  <img src="images/slide6.jpeg" alt="Bree outdoors" class="author-photo" />
+  <p>
+    If I’m not writing, you’ll probably find me outdoors 🌿, soaking in the beauty of nature.  
+    Watching the trees sway, listening to birds, or just breathing in fresh air  
+    feels so therapeutic — and it often sparks feelings I never knew I had ✨.  
+  </p>
+  <p>
+    I value mental health deeply, and that’s one of the reasons I also write self-help articles.  
+    For me, writing isn’t just words — it’s healing, discovery, and connection.  
+  </p>
+</section>
+<!-- Beyond Writing Section -->
+<section class="author-section">
+  <h2>Beyond Writing</h2>
+  <img src="images/slide8.jpeg" alt="Fashion and style" class="author-photo" />
+  <p>
+    I’m also a huge lover of fashion 👗✨. If I’m not writing, editing,  
+    or working on a project, you’ll probably catch me designing outfits  
+    and making sure they look <em>k-ute</em> 💅.  
+  </p>
+  <p>
+    Funny thing — I once dreamed of being a model, but life had other plans.  
+    Instead of the runway, I found myself in the library 📚,  
+    where I studied <strong>Information Science</strong> in campus.  
+    Maybe not the catwalk, but definitely a path that shaped my creative journey.  
+  </p>
+</section>
+<!-- Creative Roots Section -->
+<section class="author-section">
+  <h2>Creative Roots</h2>
+  <img src="images/slide9.jpeg" alt="Drama and storytelling" class="author-photo" />
+  <p>
+    Back in high school, I was into drama 🎭 — but let’s just say music and I  
+    didn’t exactly get along. I got kicked out of music because of my two left legs  
+    that refused to dance 💃😂.  
+  </p>
+  <p>
+    Truth is, I almost made it — just slightly. My voice was never meant for singing,  
+    but I’m a <em>terrific</em> bathroom singer and an even better solo dancer.  
+    When I step outside, though, my voice finds its real home in poetry and storytelling.  
+  </p>
+  <p>
+    My brothers used to tease that I “speak with my nose,” but honestly,  
+    I think I have a pretty sweet voice — one made for words, laughter, and tales.  
+  </p>
+</section>
+<!-- Writing Journey Section -->
+<section class="author-section">
+  <h2>How My Writing Journey Began</h2>
+  <img src="images/slide7.jpeg" alt="Writing journey" class="author-photo" />
+  <p>
+    As a kid, I was that child who pressured her parents to buy storybooks 📚.  
+    Ask me about any childhood book and I could tell you exactly which shelf it sat on.  
+    At night, my mum told me tales — and I loved trickster narratives the most.  
+    Maybe that’s where the <strong>Prankster Queen</strong> in me was born 👑😂.  
+  </p>
+  <p>
+    I still remember pranking my brother with a fake sweet — he fell for it, of course!  
+    Speaking of family, I’m the only girl, the lastborn, with two older brothers.  
+    Can you believe that? The chaos and the comedy write themselves.  
+  </p>
+  <p>
+    I also adored ogre tales — they were my childhood horror movies.  
+    I’d dream of being chased by ogres, terrified but fascinated all the same 👹.  
+  </p>
+  <p>
+    Back in 2011, when I was in class four, I started writing little scripts.  
+    Inspired by my <em>New Progressive Primary English Book</em>,  
+    they were “for my eyes only,” but to me they felt like masterpieces.  
+    Then in class eight (2015), I wrote my very first poem — about smoking —  
+    pulling ideas from what I saw in class.  
+  </p>
+  <p>
+    From there, writing became a lifelong companion.  
+    By 2021 in campus, I finally started sharing my poems publicly.  
+    That’s also when I landed my first editing gig, thanks to Joseph Thiong’o’s  
+    <em>Love Poems Inspired by a Friend</em>. He believed in me,  
+    and that belief gave me wings ✨.  
+  </p>
+  <p>
+    My journey continues — and so can yours.  
+    I hope you’ll find a spark of motivation here in BeeVerse Tales 💛.  
+  </p>
+</section>
+<section class="author-album">
+  <h2>Bredar Wangari’s Album</h2>
+  <div class="album-slider">
+    <img src="images/slide20.jpeg" alt="Bredar 20">
+    <img src="images/slide21.jpeg" alt="Bredar 21">
+    <img src="images/slide24.jpeg" alt="Bredar 24">
+    <img src="images/slide23.jpeg" alt="Bredar 23">
+    <img src="images/slide15.jpeg" alt="Bredar 15">
+    <img src="images/slide22.jpeg" alt="Bredar 22">
+    <img src="images/slide13.jpeg" alt="Bredar 13">
+    <img src="images/slide18.jpeg" alt="Bredar 18">
+  </div>
+</section>
+
+<!-- Closing Note -->
+<section class="closing-note">
+  <hr class="divider" />
+  <div class="closing-content">
+    <p class="closing-text">
+      Thank you for stopping by my little corner of <strong>BeeVerse Tales</strong>. ✨
+      Every poem, every story, and every piece of mischief I write is a piece of me
+      that I’m sharing with you. I hope you find laughter, healing, and maybe even
+      a little inspiration here.
+    </p>
+
+    <p class="closing-text">
+      So grab a cup of tea (or coffee if you must 😅), curl up somewhere cozy, and
+      let’s explore worlds together — one word at a time.
+    </p>
+
+    <p class="signature">With love and a sprinkle of mischief,<br /><strong>Bredar Wangari</strong></p>
+
+    <a href="stories.html" class="cta">Read My Latest Work</a>
+  </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BeeVerse Tales. All rights reserved. | Contact: 
+      <a href="mailto:beeversetales@gmail.com" style="color: inherit;">beeversetales@gmail.com</a>
+    </p>
+  </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const currentMode = localStorage.getItem('mode');
+    if (currentMode === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️ Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️ Light Mode';
+        localStorage.setItem('mode', 'dark');
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+        localStorage.setItem('mode', 'light');
+      }
+    });
+  </script>
+
+</body>
+</html>

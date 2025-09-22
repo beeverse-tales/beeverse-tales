@@ -1,0 +1,297 @@
+/* styles.css - BeeVerse Tales clean version */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fefefe;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.story-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.story-card h2 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #4b0082; /* deep purple */
+}
+
+.story-card p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.read-more-btn {
+  align-self: flex-start;
+  background-color: #b8860b; /* honey-gold */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+a.phone-link {
+  color: #b8860b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.phone-link:hover {
+  text-decoration: underline;
+}
+
+main h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4b0082;
+}
+
+footer {
+  background-color: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  border-radius: 12px 12px 0 0;
+  box-shadow: inset 0 3px 5px rgba(255,255,255,0.05);
+}
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode header {
+  background-color: #1e1e1e;
+  color: #ffd700;
+}
+
+body.dark-mode nav a {
+  color: #fff;
+}
+
+body.dark-mode .story-card {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+body.dark-mode .read-more-btn {
+  background-color: #ffd700;
+  color: #000;
+}
+
+body.dark-mode footer {
+  background-color: #000;
+  color: #888;
+}
+/* Submit Story Form Styling */
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+form label {
+  font-weight: 600;
+  color: #4b0082; /* deep purple */
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1.5px solid #b8860b; /* honey-gold */
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #4b0082;
+  box-shadow: 0 0 5px #4b0082;
+}
+
+form button[type="submit"] {
+  background-color: #b8860b;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+/* Dark Mode form adjustments */
+body.dark-mode form {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+  color: #eee;
+}
+
+body.dark-mode form label {
+  color: #ffd700;
+}
+
+body.dark-mode form input[type="text"],
+body.dark-mode form input[type="email"],
+body.dark-mode form textarea {
+  background-color: #333;
+  border-color: #ffd700;
+  color: #eee;
+}
+
+body.dark-mode form input[type="text"]:focus,
+body.dark-mode form input[type="email"]:focus,
+body.dark-mode form textarea:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 5px #ffd700;
+}
+
+body.dark-mode form button[type="submit"] {
+  background-color: #ffd700;
+  color: #000;
+}
+
+body.dark-mode form button[type="submit"]:hover {
+  background-color: #b8860b;
+  color: #fff;
+}
+/* Services Section */
+section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+section li {
+  background-color: #f9f4ff;
+  border-left: 5px solid #b8860b;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+section li strong {
+  color: #4b0082;
+  font-family: 'Playfair Display', serif;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* Email Button Styling */
+a.read-more-btn {
+  display: inline-block;
+  background-color: #b8860b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+a.read-more-btn:hover {
+  background-color: #ffd700;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode section li {
+  background-color: #1e1e1e;
+  color: #eee;
+  border-left-color: #ffd700;
+}
+
+body.dark-mode a.read-more-btn {
+  background-color: #ffd700;
+  color: #000;
+}
+
+body.dark-mode a.read-more-btn:hover {
+  background-color: #b8860b;
+  color: white;
+}

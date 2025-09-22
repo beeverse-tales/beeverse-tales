@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BeeVerse Tales - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #d4af37;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #5c3a00;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: #d4af37;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    #darkModeToggle {
+      background: none;
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      color: #d4af37;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    #darkModeToggle:hover {
+      background-color: #d4af37;
+      color: #1a1a1a;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #d4af37;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background-color: #fafaf5;
+      color: #3b2f00;
+    }
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #d4af37;
+      color: #3b2f00;
+    }
+    body.dark-mode nav a {
+      color: #3b2f00;
+    }
+    body.dark-mode h2 {
+      color: #3b2f00;
+    }
+    body.dark-mode p {
+      color: #3b2f00;
+    }
+    /* Make homepage images small thumbnails */
+img {
+  max-width: 200px;  /* change this number to make them bigger/smaller */
+  height: auto;
+  display: block;
+  margin: 10px auto;  /* adds space above/below and centers */
+}
+.submit-slider {
+  display: flex;               /* arrange images in a row */
+  justify-content: space-between; /* space between images */
+  gap: 10px;                   /* extra spacing if needed */
+  margin-bottom: 15px;         /* space below row */
+}
+
+.submit-slider img.submit-img {
+  width: 32%;                  /* 3 images fit in one row */
+  height: auto;
+  border-radius: 10px;         /* optional for style */
+}
+.story-love-slider-top {
+  display: flex;
+  justify-content: space-between; /* 2 images side by side */
+  gap: 10px;
+  margin-bottom: 10px; /* space below top row */
+}
+
+.story-love-slider-bottom {
+  display: flex;
+  justify-content: center; /* center the single image */
+  margin-bottom: 15px; /* space below bottom row */
+}
+
+.story-love-slider-top img,
+.story-love-slider-bottom img {
+  width: 48%;   /* top row images take roughly half each */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* bottom row image takes smaller width */
+.story-love-slider-bottom img {
+  width: 32%;   /* adjust size as needed */
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/beeverse-logo.png" alt="BeeVerse Tales Logo">
+      <h1>BeeVerse Tales</h1>
+    </div>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="poems.html">Poems</a>
+      <a href="research.html">Research & Blogs</a>
+      <a href="author.html">Author</a>
+    
+    </nav>
+  <!-- Subscribe Section -->
+<div class="subscribe-top">
+  <form name="subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <!-- hidden input for Netlify -->
+    <input type="hidden" name="form-name" value="subscribe">
+
+    <!-- anti-bot field -->
+    <p style="display:none">
+      <label>Don’t fill this out: <input name="bot-field"></label>
+    </p>
+
+    <!-- user input -->
+    <input type="email" name="email" placeholder="Enter your email" required>
+
+    <!-- submit button -->
+    <button type="submit" class="subscribe-btn">Subscribe</button>
+
+    <!-- success message -->
+    <p id="subscribe-message" style="display:none; color: green;">Subscribed!</p>
+  </form>
+  <span class="subscribe-note">Join others</span>
+</div>
+
+
+  </header>
+
+
+
+   
+  <main>
+    <h2>Welcome to BeeVerse Tales</h2>
+    <p>
+      Dive into a world of imagination and storytelling. Every voice matters, 
+      and every tale is a golden thread in the universe of creativity.
+    </p>
+<section class="submit-story">
+  <div class="submit-slider">
+    <img src="images/slide1.jpeg" alt="Submit Your Story" class="submit-img">
+    <img src="images/slide10.jpeg" alt="Submit Your Story" class="submit-img">
+    <img src="images/slide12.jpeg" alt="Submit Your Story" class="submit-img">
+  </div>
+  <h2>Join Us!</h2>
+  <p>Have a story or poem? Submit it and be part of BeeVerse Tales.</p>
+  <a href="submit.html" class="btn">Submit Your Story</a>
+</section>
+
+<section class="contact-link">
+  <p>For more information about us, <a href="contact.html" class="contact-btn">Contact Us</a>.</p>
+</section>
+<section class="about-link">
+  <p>Want to know more about us? <a href="about.html" class="about-btn">About Us</a>.</p>
+</section>
+
+   <section class="featured-section">
+  <!-- Featured Story -->
+  <div class="featured-story">
+    <h2>📖 Featured Story</h2>
+    <h3>The Zebra at the Wedding</h3>
+    <p>
+      She stole my best friend, she stole my boyfriend, 
+      and now she was standing at the altar in white.  
+      But little did they know, the real show was just about to begin.  
+      A tale of betrayal, confidence, and standing out —  
+      the zebra at the wedding.
+    </p>
+    <a href="stories.html" class="btn">Read More</a>
+  </div>
+
+  <section class="subscribe-slide">
+  <h2>Enjoying our stories?</h2>
+  <p>Subscribe to BeeVerse Tales and get updates whenever a new story or poem is added.</p>
+  
+</section>
+
+  <!-- Featured Poem -->
+  <div class="featured-poem">
+    <h2>✍️ Featured Poem</h2>
+    <h3>Echoed Greetings</h3>
+    <p>
+      You text me hi, I reply hi,<br>
+      must we echo each other<br>
+      like parrots in an empty cage?  
+      What am I supposed to say<br>
+      after silence wears the crown?
+    </p>
+    <a href="poems.html" class="btn">Read More</a>
+  </div>
+</section>
+
+
+<section class="story-love-slide">
+  <!-- Top row: 2 images -->
+  <div class="story-love-slider-top">
+    <img src="images/slide2.jpeg" alt="Slide 2" class="story-love-img">
+    <img src="images/slide14.jpeg" alt="Slide 14" class="story-love-img">
+  </div>
+
+  <!-- Bottom row: 1 image -->
+  <div class="story-love-slider-bottom">
+    <img src="images/slide11.jpeg" alt="Slide 11" class="story-love-img">
+  </div>
+
+  <h2>Founded with Love for Storytelling</h2>
+  <p>BeeVerse Tales was created to celebrate creativity and connect readers and writers. Share your thoughts with us!</p>
+  <a href="stories.html" class="btn">Leave a Comment</a>
+</section>
+
+<!-- Author Slide Section -->
+<section class="author-slide">
+  <div class="slide-container">
+    <img src="images/slide4.jpeg" alt="Author Background" class="author-slide-img" />
+
+    <div class="slide-caption">
+      <h2>Know About the Author</h2>
+      <a href="author.html" class="author-btn">Meet BreezyBee 🐝</a>
+    </div>
+  </div>
+</section>
+<section class="support-section">
+  <h2>💛 Support BeeVerse Tales</h2>
+  <p>
+    Every story, poem, and idea shared here is made with love.  
+    If you’d like to support my work and help BeeVerse Tales grow,  
+    you can reach me directly on WhatsApp.
+  </p>
+  <!-- Replace 254700000000 with your actual WhatsApp number -->
+  <a href="https://wa.me/254751207908" target="_blank" class="support-btn">
+    💬 Chat on WhatsApp
+  </a>
+</section>
+    <!-- Other main content can go here -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BeeVerse Tales. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark Mode
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const mode = localStorage.getItem('mode');
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☀️ Light Mode';
+    }
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      localStorage.setItem('mode', isDark ? 'dark' : 'light');
+    });
+  </script>
+  <script>
+  const form = document.querySelector('form[name="subscribe"]');
+  const message = document.getElementById('subscribe-message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // stop default submission
+    fetch('/', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(() => {
+      message.style.display = 'block'; // show "Subscribed!"
+      form.reset(); // clear the form
+    })
+    .catch((error) => alert('Error: ' + error));
+  });
+</script>
+
+</body>
+</html>

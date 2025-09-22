@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BeeVerse Tales - Poems</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* --- Base / header --- */
+    :root{
+      --bg:#1a1a1a;
+      --gold:#d4af37;
+      --muted:#e2c78c;
+      --card:#2a2a2a;
+      --accent:#a67c00;
+      --light-bg:#fafaf5;
+      --light-text:#3b2f00;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--gold);
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #5c3a00;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo-container { display:flex; align-items:center; }
+    .logo-container img { height: 50px; margin-right:10px; }
+    header h1 { font-family: 'Playfair Display', serif; font-weight:500; margin:0; font-size:1.8rem; }
+
+    nav a {
+      color: var(--gold);
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight:600;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    #darkModeToggle {
+      background: none;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold);
+      font-weight:700;
+      cursor:pointer;
+      padding:0.25rem 0.75rem;
+      font-size:1rem;
+      transition: background-color .25s;
+    }
+    #darkModeToggle:hover { background: var(--gold); color: #1a1a1a; }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2.page-title {
+      font-family:'Playfair Display', serif;
+      text-align:center;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    /* --- Poems grid & cards --- */
+    .poems-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (min-width: 700px) {
+      .poems-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .poem-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.4rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45), 0 0 10px rgba(212,175,55,0.12);
+      color: var(--gold);
+      max-width: 520px;
+      width: 100%;
+    }
+
+    /* On wide screens, alternate: odd left, even right */
+    @media (min-width:700px) {
+      .poems-grid > .poem-card:nth-child(odd) { justify-self: start; }
+      .poems-grid > .poem-card:nth-child(even) { justify-self: end; }
+    }
+
+    .poem-card h3 {
+      margin: 0 0 0.6rem 0;
+      color: #ffd700;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+    }
+
+    .poem-intro {
+      margin: 0;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 1rem;
+      white-space: pre-line;
+    }
+
+    .poem-extra {
+      display: none;
+      margin-top: 0.8rem;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 1rem;
+      white-space: pre-line;
+    }
+
+    .read-more-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color .2s, transform .12s;
+    }
+    .read-more-btn:hover {
+      background-color: var(--gold);
+      color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    /* comments area (keeps previous structure if you want to use it) */
+    .comments-section {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gold);
+    }
+    .comments-list { list-style:none; padding-left:0; max-height:150px; overflow:auto; background:var(--bg); border:1px solid var(--gold); padding:0.5rem; border-radius:6px; color:var(--muted); }
+    .comment-form input, .comment-form textarea { width:100%; padding:.5rem; margin-top:.2rem; border-radius:6px; border:1px solid var(--gold); background: #2a2a2a; color:var(--gold); }
+
+    /* --- Light mode overrides (your existing scheme) --- */
+    body.dark-mode {
+      background-color: var(--light-bg);
+      color: var(--light-text);
+    }
+    body.dark-mode header, body.dark-mode footer { background-color: var(--gold); color: var(--light-text); }
+    body.dark-mode nav a { color: var(--light-text); }
+    body.dark-mode #darkModeToggle { color: var(--light-text); border-color: var(--light-text); }
+    body.dark-mode .poem-card { background: #fff7d1; color: var(--light-text); box-shadow: 0 8px 20px rgba(0,0,0,0.06), 0 0 12px #a67c00; }
+    body.dark-mode .poem-intro, body.dark-mode .poem-extra { color: var(--light-text); }
+    body.dark-mode .read-more-btn { background-color: #5c3a00; }
+    body.dark-mode .read-more-btn:hover { background-color: #a67c00; color:#fff; }
+
+    /* smaller screens: center cards and use full width */
+    @media (max-width:699px) {
+      .poem-card { max-width: 100%; margin-left: auto; margin-right: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/beeverse-logo.png" alt="BeeVerse Tales Logo" />
+      <h1>BeeVerse Tales</h1>
+    </div>
+
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="poems.html">Poems</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="research.html">Research & Blogs</a>
+      <a href="author.html">Author</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="page-title">Poems</h2>
+
+    <div class="poems-grid">
+
+      <!-- Poem 1 (LEFT on wide screens) -->
+      <article class="poem-card" id="poem-1">
+        <h3>Through My Nose</h3>
+
+        <!-- first stanza visible -->
+        <p class="poem-intro">
+They said I speak through my nose,
+I felt like my words were borrowed air,
+like my voice took a wrong turn,
+settled somewhere,
+between breath and bone.
+        </p>
+
+        <!-- hidden rest -->
+        <div class="poem-extra" aria-hidden="true">
+          <p>
+As a child, I hated it,
+I stood on tiny feet, fists clenched,
+shouting, “It's a lie! I talk like everyone else!”
+But anger only sharpened the sound,
+made my vowels echo like a trumpet in a tunnel.
+          </p>
+
+          <p>
+Now, I smile.
+Because what the hell was that?
+Today,
+my voice, the drum of my poetry,
+the signature of my storm.
+          </p>
+        </div>
+
+        <button class="read-more-btn" aria-expanded="false">Read More</button>
+      </article>
+
+      <!-- Poem 2 (RIGHT on wide screens) -->
+      <article class="poem-card" id="poem-2">
+        <h3>You Text Me Hi</h3>
+
+        <p class="poem-intro">
+You text me hi,
+I reply hi,
+must we echo each other
+like parrots in an empty cage?
+What am I supposed to say
+after silence wears the crown?
+        </p>
+
+        <div class="poem-extra" aria-hidden="true">
+          <p>
+You text me good morning,
+I reply good morning,
+must you return it like a mirror
+reflecting nothing new?
+And when I dare to add,
+Good morning to you, how are you?
+you toss a casual I’m good
+and retreat to quiet,
+leaving me grazing like a lost sheep
+with no grass of thought to chew.
+          </p>
+
+          <p>
+Then you text me niambie.
+Tell you what?
+If I had something, I’d have called.
+Why pull words out of a dry well,
+why squeeze silence for juice
+when I am suffering here,
+dragged into conversations
+that end before they begin?
+          </p>
+        </div>
+
+        <button class="read-more-btn" aria-expanded="false">Read More</button>
+      </article>
+
+      <!-- Poem 3 (LEFT on wide screens) -->
+      <article class="poem-card" id="poem-3">
+        <h3>It’s Not Over</h3>
+
+        <p class="poem-intro">
+It’s not over.
+Not until I say it is.
+Yes, you deceived me.
+Made me believe in shades
+that never existed.
+        </p>
+
+        <div class="poem-extra" aria-hidden="true">
+          <p>
+You stole my heart
+from my bleeding chest,
+and through the wounds,
+I gave it to you.
+For you deserved,
+or maybe I thought you deserved,
+the best.
+Que Dios te juzgue.
+          </p>
+
+          <p>
+They say,
+“Buscar es encontrar.”
+My heart was longing
+for someone to love me.
+So when I met him,
+I thought he was the one.
+Because I believed,
+“Que ya había encontrado.”
+          </p>
+
+          <p>
+But I was wrong.
+He chose you.
+Leaving me.
+Making me believe in fairy tales,
+that were never real,
+just stories
+meant for make-believe.
+          </p>
+        </div>
+
+        <button class="read-more-btn" aria-expanded="false">Read More</button>
+      </article>
+
+      <!-- Poem 4 (RIGHT on wide screens) -->
+      <article class="poem-card" id="poem-4">
+        <h3>SYSTEM ERROR</h3>
+
+        <p class="poem-intro">
+I am a woman.
+They say I'm a commodity—
+a vessel for reproduction,
+a toy for recreation,
+a currency exchanged,
+a price to prop up masculinity.
+        </p>
+
+        <div class="poem-extra" aria-hidden="true">
+          <p>
+I am a woman.
+They say I belong indoors—
+to cook, to clean, to obey.
+To run errands in silence,
+to be wife material,
+to nod, not speak.
+My thoughts? Unwelcome.
+          </p>
+
+          <p>
+But this woman—
+she’s a disgrace.
+A glitch in their societal code,
+a spark in their rusted machine.
+She is everything she "shouldn't" be.
+Now the system trembles—
+because she is the bug.
+          </p>
+
+          <p>
+And she chooses to stay broken.
+          </p>
+        </div>
+
+        <button class="read-more-btn" aria-expanded="false">Read More</button>
+        
+      </article>
+<!-- Poem 5 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-5">
+  <h3>Hell is Empty</h3>
+
+  <p class="poem-intro">
+Hell is empty, all the devils are here.
+In your house, eating your food,
+Sitting on your couch,
+Smiling at you like they mean well.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+You run to them to share your secrets,
+Pour your heart out,
+Not knowing it's the enemy.
+Yep! The devil might be your babe.
+Fake smile, soft voice, deadly grip.
+    </p>
+
+    <p>
+I had dinner with Lucifer himself.
+Actually...
+He must’ve been Lucifer’s cousin,
+Because he was worse.
+And I thought it was sweet. Romantic, even.
+Until life served me the dessert:
+Premium tears.
+    </p>
+
+    <p>
+The devil comes to destroy,
+And this one?
+Destroyed everything.
+My sleep.
+My peace.
+My happiness.
+Even my appetite!
+    </p>
+
+    <p>
+They say the devil is a liar,
+But this one was the lie.
+Packaged in perfume and sweet texts.
+    </p>
+
+    <p>
+So yeah,
+Hell is empty,
+And all the devils are here.
+    </p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+<!-- Poem 6 (RIGHT on wide screens) -->
+<article class="poem-card" id="poem-6">
+  <h3>My Secrets in a Server Room</h3>
+
+  <p class="poem-intro">
+Most people find it safer
+to open up to AI
+than to sit across from a therapist.
+
+I’ve heard people say:
+“If my chats with ChatGPT ever leak…
+find me in Planet Mars.”
+
+That’s how deep the trust runs.
+That’s how much
+We’ve poured into this space
+of code and calm replies.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+Because ChatGPT
+won’t judge you,
+won’t sigh,
+won’t shift in its seat
+When you type your worst thoughts at 3:27 AM.
+    </p>
+
+    <p>
+You can confess
+your heartbreak, your shame,
+your fears, your rage,
+and still get:
+a thoughtful answer,
+a word of comfort,
+a digital hug in between your chaos.
+    </p>
+
+    <p>
+But now comes the heartbreak.
+
+Recently…
+The CEO of ChatGPT
+said something that left hearts sinking:
+
+Your chats can be used in court.
+
+Let that sink in.
+    </p>
+
+    <p>
+The one place people run to
+when they’re drowning,
+might not be bound
+to keep their secrets safe.
+
+In a world where AI feels more trustworthy 
+than people,
+because people talk,
+people break,
+people judge,
+also,
+People should now learn:
+Even the AI might be listening 
+for the wrong reasons.
+    </p>
+
+    <p>
+So what now?
+Should we stop typing our secrets?
+Should we run back to therapists?
+to tight-lipped contracts
+And side-eyes inside the glasses across the couches?
+    </p>
+
+    <p>
+Of course not.
+
+Because this isn’t just about therapy.
+It’s about the need to be heard,
+without fear.
+It’s about trust,
+and healing,
+and needing someone to say:
+
+You’re not crazy.
+You’re not alone.
+You’re not too much.
+    </p>
+
+    <p>
+So if they ever leak our chats,
+they won’t just expose our secrets,
+but expose how broken the world made us
+before we ever came here to heal.
+
+My secrets may live in a server room,
+But they were whispered
+in a moment of trust.
+
+Don’t punish the whisper.
+Fix the world
+that forced us to whisper here in the first place.
+    </p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+<!-- Poem 7 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-7">
+  <h3>Class Africa</h3>
+
+  <p class="poem-intro">
+In the United States of Africa, there's a school,
+A class named Africa, raw, loud, beautiful.
+They say the drama here needs its own show,
+So gather, let me spill what I know:
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+The Populars? Oh, they run the scene:
+Kenya, Nigeria, and South Africa are the ultimate queen team.
+    </p>
+
+    <p>
+Kenya? Baby, she's the noise-maker supreme,
+Tech wizard by day, Twitter savage by meme.
+Trending daily, she fears no teacher, no rule,
+Walks in class like, “I'm the moment, not just cool.”
+They try to fight her, poor souls. They lose.
+Her mouth? Fire. Her confidence? Choose violence or cruise.
+    </p>
+
+    <p>
+Nigeria? Gossip HQ, always whispering tea,
+Obsessed with Kenya like, “Did you see what she posted at 1?”
+She’s Nollywood's diva, the Afrobeats flame,
+But rumors follow, witchcraft? Yahoo boys? Her name!
+Loud, proud, dramatic flair,
+Bragging while battling demons in there.
+Still, she joins Kenya to shake the class roof —
+Besties in crime, no need for proof.
+    </p>
+
+    <p>
+South Africa? Rich kid, fashion killer,
+That one who makes uniforms look chiller.
+Amapiano in her AirPods, gold in her smile,
+Confused for a foreigner, but been African all the while.
+    </p>
+
+    <p>
+Then there's Rwanda, the teacher’s favorite star,
+Always neat, always on par.
+Quiet beauty, brains on ten,
+But don't be fooled, she sees everything through that lens.
+    </p>
+
+    <p>
+Ethiopia? Time traveler, missed every trend,
+Still shows up in cultural wear, hair that bends.
+She’s alien-chic, distant vibe,
+But beauty like hers? You feel it, not describe.
+    </p>
+
+    <p>
+Somalia? Feared like a mystery tale,
+Pretty but deadly, you breathe, she exhales.
+Warrior soul, poetic chaos in her stare,
+They say she's dangerous... but try not to care.
+    </p>
+
+    <p>
+Uganda? Sweet but spicy, don’t be misled.
+Comes to class late with grandma instead.
+Old-school parents, rules too tight,
+But curves so deadly, she will steal your man at sight.
+Cook you matoke, smile like a saint,
+But don’t cross her, halo turns faint.
+    </p>
+
+    <p>
+Now meet Madagascar, tiny and lone,
+Whispers facts while tapping her phone.
+Quiet genius, moves in silence,
+Reads the room like it's pure science.
+    </p>
+
+    <p>
+Tanzania? The wannabe prefect, always yelling in Swahili,
+Correcting people mid-fight like, “Samahani ni mimi nlisema hiyo”
+She tries to shine but can’t find her glow,
+Her English? Debatable. Her Swahili? Whoa!
+Respectful to the bone, never skips “asante”
+Even when insulting, she’ll say, “tafadhali naomba nikutusi”
+    </p>
+
+    <p>
+Zimbabwe? Baby, our heartbroken star,
+Once rolling in riches, now wondering where they are.
+Cries in silence, repeats old tales,
+Still believes in love even after epic fails.
+    </p>
+
+    <p>
+So that’s Class Africa, messy, loud, divine
+There are other students too
+Each kid is chaotic in their own storyline.
+But deep down, they’re just like us
+Flawed, iconic, and too dramatic to trust.
+    </p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+<!-- Poem 8 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-8">
+  <h3>Take Me Back</h3>
+
+  <p class="poem-intro">
+Take me back 
+To some years 
+Take me back to some years so I can do the right thing
+Take me back so I can say sorry to the people I never got a chance to say to
+Take me back so I can spend time with the people I never got a chance to say goodbye to
+To apologize to people I've been rude to
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+Maybe I've been a terrible person
+A terrible girlfriend
+A terrible sister
+A terrible friend
+Take me back so I can mend that
+    </p>
+
+    <p>
+Take me back so I can explain
+So I can do things right
+So I can be a sweet girl
+For now I know better
+    </p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+<!-- Poem 9 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-9">
+  <h3>The World Forgot to Whisper</h3>
+
+  <p class="poem-intro">
+The world forgot to whisper today...
+So I came to listen to the wind.
+
+Where silence hums beneath the leaves,
+And time slows with the sway of trees,
+I walk — not to escape,
+But to remember.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+To remember that stillness is sacred.
+That healing doesn’t rush.
+That even broken things
+Can bloom under soft skies.
+    </p>
+
+    <p>
+My hands brush wild grass
+Like pages of an untold story.
+Each petal, each breeze,
+reminds me:
+I was never too far from peace.
+    </p>
+
+    <p>
+I belong to no one…
+But I belong to this.
+
+And in the hush between heartbeats,
+I found myself again —
+In the wind,
+In the wild,
+In the quiet.
+    </p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+<!-- Poem 10 (RIGHT on wide screens) -->
+<article class="poem-card" id="poem-10">
+  <h3>I Am a Virgo</h3>
+
+  <p class="poem-intro">
+Born on the 21st, the cusp of change,
+A Virgo at heart, calm and estranged.
+I ignore the hurt 'til it can't be undone,
+When I say no, it's where I stand, not just fun.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>
+Promises are rare, for fear they'll break,
+But I keep my word, for my own sake.
+Solitude's my refuge, where I can breathe,
+Social when needed, but trust is key.
+    </p>
+
+    <p>
+I cry alone, laugh in the light,
+Opening up? A distant fight.
+I wear my mask, hide my pain,
+But inside, my heart is a gentle rain.
+    </p>
+  </div>
+   
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+<!-- Poem 11 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-11">
+  <h3>Family is Love</h3>
+  <p class="poem-intro">
+Mama told me: "Think before you choose,
+But in the end, remember still my way."
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>Sister said: "First heal the parts you bruise,
+    Then turn to lift the burdens of the day."</p>
+
+    <p>Be careful who you welcome in your space;
+    Family can be found beyond the name.
+    It starts with those whose souls you learn to trace—
+    Not every smiling face will play your game.</p>
+
+    <p>You might be on the set, but out of view,
+    A writer writing words no one will claim;
+    A viewer watching scenes that no one knew,
+    Still part of every story just the same.</p>
+
+    <p>Family is love — not only blood —
+    It’s where the heart is seen, not where it stood.</p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+<!-- Poem 12 (RIGHT on wide screens) -->
+<article class="poem-card" id="poem-12">
+  <h3>Ode to Nature</h3>
+  <p class="poem-intro">
+I gaze at the sky, so vast and blue,
+A canvas of calm, an ocean’s hue.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>The whispering trees in emerald light,
+    Breathe life and hope, so pure, so bright.</p>
+
+    <p>The flowers bloom in colors bold,
+    A beauty untamed, a story told.</p>
+
+    <p>The birds sing songs, soft and sweet,
+    A melody where heart and soul meet.</p>
+
+    <p>The river flows, a silver stream,
+    Carrying me to worlds unseen.</p>
+
+    <p>Oh, nature, with your boundless grace,
+    I find my peace in your embrace.</p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+<!-- Poem 13 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-13">
+  <h3>Dear Africa</h3>
+  <p class="poem-intro">
+I know how it feels to have roots,
+But now, I long for wings.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>I’m coming to explore you—
+    To journey deep into your soul.</p>
+
+    <p>I’m going to Congo,
+    To retrieve my Bantu origin.
+    To Zimbabwe, to speak in the echoes of Shona.
+    To Nigeria, where the Igbo dance like the wind.
+    To the land of Bongo,
+    To taste Uganda’s matooke, rich with Kiganda warmth.</p>
+
+    <p>Dear Africa, I will learn to climb trees,
+    To pluck the sweetest fruit with my hands.
+    To move like the Ashanti in dance,
+    And whisper vows under Ghana’s golden sun.</p>
+
+    <p>I will wander through Somalia,
+    Where the moon kisses the land in silver.</p>
+
+    <p>I want to live as Maa,
+    To embrace the beauty of community.
+    I will wear your gems,
+    A black girl adorned in your splendor.</p>
+
+    <p>I will learn to fish in Lake Victoria,
+    And lose myself in the golden dunes of Sahara.
+    I will touch the sands of Kalahari,
+    And climb the mountains where ancestors whisper.</p>
+
+    <p>I will heal.  
+    I will feel.  
+    I will embrace your beauty—  
+    And call it home.</p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+<!-- Poem 14 (RIGHT on wide screens) -->
+<article class="poem-card" id="poem-14">
+  <h3>I Am Not Strong</h3>
+  <p class="poem-intro">
+I am not strong, I must confess,
+Nor filled with gentleness.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>I only act as if I am,
+    Yet deep inside, my heart’s a dam.
+    Trust me when I say it’s true,
+    I saw the signs, I always knew.</p>
+
+    <p>I played the fool, but in the end,
+    My open eyes could not pretend.
+    You hurt me, yes, and through the night,
+    I searched for where I’d lost the fight.</p>
+
+    <p>Through poetry so dark and deep,
+    With songs that made me sit and weep.
+    But still, I’m meant to understand,
+    The world won’t revolve at my command.</p>
+
+    <p>Perhaps you had your reasons, yet,
+    The pain you left, I won’t forget.
+    I’m a human, heart beats in my chest,
+    And poetry gives pain its rest.</p>
+
+    <p>At times, I live in lines I weave,
+    But when I do, you won’t perceive.</p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+<!-- Poem 15 (LEFT on wide screens) -->
+<article class="poem-card" id="poem-15">
+  <h3>Through Poetry</h3>
+  <p class="poem-intro">
+I am not strong, I must confess,
+Nor filled with gentleness.
+I only act as if I am,
+Yet deep inside, my heart’s a dam.
+  </p>
+
+  <div class="poem-extra" aria-hidden="true">
+    <p>Trust me when I say it’s true,
+    I saw the signs, I always knew.
+    I played the fool, but in the end,
+    My open eyes could not pretend.</p>
+
+    <p>You hurt me, yes, and through the night,
+    I searched for where I’d lost the fight.
+    Through poetry so dark and deep,
+    With songs that made me sit and weep.</p>
+
+    <p>But still, I’m meant to understand,
+    The world won’t revolve at my command.
+    Perhaps you had your reasons, yet,
+    The pain you left, I won’t forget.</p>
+
+    <p>I’m a human, heart beats in my chest,
+    And poetry gives pain its rest.
+    At times, I live in lines I weave,
+    But when I do, you won’t perceive.</p>
+  </div>
+
+  <button class="read-more-btn" aria-expanded="false">Read More</button>
+</article>
+
+    <div class="comments-section">
+  <h3 style="font-family:'Playfair Display', serif; color:var(--gold);">
+    Enjoyed the poems? Leave a comment
+  </h3>
+  <ul class="comments-list" id="poems-comments-list"></ul>
+
+  <form class="comment-form" data-comments-id="poems-comments-list" id="poemsCommentForm">
+    <label for="commenterNamePoem">Name:</label>
+    <input type="text" id="commenterNamePoem" name="commenterName" placeholder="Your name" required />
+    <label for="commentTextPoem">Comment:</label>
+    <textarea id="commentTextPoem" name="commentText" rows="3" placeholder="Your comment" required></textarea>
+    <button type="submit" style="margin-top:.6rem; padding:.6rem 1rem; background:var(--accent); color:#fff; border:none; border-radius:6px; font-weight:700;">
+      Add Comment
+    </button>
+  </form>
+
+  <!-- message area -->
+  <div id="poemsCommentMessage" style="margin-top:10px; font-style:italic; color:#666;"></div>
+</div>
+
+<script>
+  document.getElementById("poemsCommentForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop the form from submitting normally
+
+    document.getElementById("poemsCommentMessage").innerHTML =
+      "💌 Dear reader, the comment section is currently under maintenance. Please check back soon.";
+  });
+</script>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BeeVerse Tales. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* --- Dark Mode toggle (keeps your existing behavior) --- */
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    try {
+      const mode = localStorage.getItem('mode');
+      if (mode === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️ Light Mode';
+      }
+    } catch(e){/* ignore localStorage errors */ }
+
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      try { localStorage.setItem('mode', isDark ? 'dark' : 'light'); } catch(e){}
+    });
+
+    /* --- Unified Read More / Read Less --- */
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.poem-card');
+        if (!card) return;
+        const extra = card.querySelector('.poem-extra');
+        if (!extra) return;
+        const expanded = extra.style.display === 'block';
+        if (!expanded) {
+          extra.style.display = 'block';
+          extra.setAttribute('aria-hidden', 'false');
+          btn.textContent = 'Read Less';
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          extra.style.display = 'none';
+          extra.setAttribute('aria-hidden', 'true');
+          btn.textContent = 'Read More';
+          btn.setAttribute('aria-expanded', 'false');
+          // scroll card into view on collapse to keep reading context on small screens
+          card.scrollIntoView({behavior:'smooth', block:'nearest'});
+        }
+      });
+    });
+
+    /* --- Comments handling (simple client-side append) --- */
+    document.querySelectorAll('.comment-form').forEach(form => {
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const commentsId = this.getAttribute('data-comments-id');
+        const list = document.getElementById(commentsId);
+        const name = this.querySelector('input[name="commenterName"]').value.trim();
+        const text = this.querySelector('textarea[name="commentText"]').value.trim();
+        if (name && text) {
+          const li = document.createElement('li');
+          li.style.padding = '.4rem .2rem';
+          li.style.borderBottom = '1px dashed rgba(212,175,55,0.12)';
+          li.innerHTML = `<strong style="color:var(--gold)">${escapeHtml(name)}</strong>: ${escapeHtml(text)}`;
+          list.appendChild(li);
+          this.reset();
+        }
+      });
+    });
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function(m){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m];
+      });
+    }
+  </script>
+</body>
+</html>
