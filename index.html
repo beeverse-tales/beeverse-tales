@@ -195,6 +195,49 @@ img {
   color: #333;
   font-family: Georgia, serif;
 }
+.quote-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #fdfdfd;
+}
+
+.quote-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  align-items: center;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.quote-image img {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quote-text {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #333;
+  font-family: Georgia, serif;
+  flex: 1 1 300px; /* allows text to shrink on small screens */
+}
+
+/* Responsive tweak for mobile */
+@media (max-width: 768px) {
+  .quote-container {
+    flex-direction: column; /* stack image on top, text below */
+    text-align: center;
+  }
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  .quote-image img {
+    max-width: 80%; /* scale down image on mobile */
+  }
+}
 
   </style>
 </head>
