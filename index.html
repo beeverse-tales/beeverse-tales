@@ -141,7 +141,33 @@ img {
 .story-love-slider-bottom img {
   width: 32%;   /* adjust size as needed */
 }
+:root{
+--bv-bg: #fff8f2; /* warm cream */
+--bv-accent: #8b5cf6; /* purple */
+--bv-gold: #c99a45; /* gold accent */
+--bv-text: #2b2b2b;
+--bv-radius: 14px;
+}
+#bv-copyright.bv-policy{background:var(--bv-bg);padding:40px 20px;font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--bv-text)}
+.bv-container{max-width:980px;margin:0 auto}
+.bv-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.bv-header h2{font-family: 'Merriweather', Georgia, serif;font-size:1.6rem;margin:0;color:var(--bv-accent)}
+.bv-year{margin:0;color:#6b6b6b;font-size:0.95rem}
+.bv-card{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));padding:22px;border-radius:var(--bv-radius);box-shadow:0 10px 30px rgba(0,0,0,0.05)}
+.bv-card h3{font-family:'Merriweather', Georgia, serif;color:var(--bv-accent);margin:16px 0 8px;font-size:1.05rem}
+.bv-card ul{margin:0 0 12px 18px;padding:0;line-height:1.6}
+.bv-card li{margin:8px 0}
+.bv-actions{display:flex;gap:10px;margin-top:12px}
+.bv-actions button{border:1px solid rgba(0,0,0,0.08);background:white;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600}
+.bv-actions button:hover{transform:translateY(-2px);transition:all 0.15s ease}
 
+
+/* Responsive */
+@media (max-width:640px){
+#bv-copyright.bv-policy{padding:22px 14px}
+.bv-header{flex-direction:column;align-items:flex-start}
+.bv-header h2{font-size:1.35rem}
+}
   </style>
 </head>
 <body>
@@ -281,6 +307,51 @@ img {
     </div>
   </div>
 </section>
+<section id="bv-copyright" class="bv-policy">
+<div class="bv-container">
+<header class="bv-header">
+<h2>Copyright &amp; Content Policy</h2>
+<p class="bv-year">© 2025 <strong>BeeVerse Tales</strong>. All rights reserved.</p>
+</header>
+
+
+<article class="bv-card">
+<h3>Authorship &amp; Ownership</h3>
+<ul>
+<li>Guest submissions remain the intellectual property of their respective authors. BeeVerse Tales will always credit the author when publishing their work.</li>
+<li>Stories by <strong>Bredar Wangari (BeeVerse Tales Author)</strong> are the exclusive property of BeeVerse Tales.</li>
+</ul>
+
+
+<h3>Plagiarism Check</h3>
+<ul>
+<li>All submitted stories undergo a plagiarism check before publishing.</li>
+<li>Any story found to contain copied or unoriginal content will not be accepted for publication.</li>
+<li>By submitting, authors confirm that their work is original and does not infringe on the rights of others.</li>
+</ul>
+
+
+<h3>Sharing &amp; Acknowledgment</h3>
+<ul>
+<li>Readers are welcome to share stories, take screenshots, and post them on other platforms as long as <strong>BeeVerse Tales</strong> and the author are properly acknowledged.</li>
+<li>Republishing full stories without credit or permission is strictly prohibited.</li>
+</ul>
+
+
+<h3>Use of Content</h3>
+<ul>
+<li>No content on this site may be copied, reproduced, or distributed without prior written permission from the author or BeeVerse Tales.</li>
+<li>Sharing direct links to stories is encouraged and appreciated.</li>
+</ul>
+
+
+<div class="bv-actions">
+<button id="bv-print" aria-label="Print policy">Print</button>
+<button id="bv-download" aria-label="Download policy as text">Download</button>
+</div>
+</article>
+</div>
+</section>
 <section class="support-section">
   <h2>💛 Support BeeVerse Tales</h2>
   <p>
@@ -295,6 +366,7 @@ img {
 </section>
     <!-- Other main content can go here -->
   </main>
+
 
   <footer>
     <p>&copy; 2025 BeeVerse Tales. All rights reserved.</p>
@@ -314,8 +386,7 @@ img {
       darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
       localStorage.setItem('mode', isDark ? 'dark' : 'light');
     });
-  </script>
-  <script>
+
   const form = document.querySelector('form[name="subscribe"]');
   const message = document.getElementById('subscribe-message');
 
@@ -331,7 +402,38 @@ img {
     })
     .catch((error) => alert('Error: ' + error));
   });
-</script>
+  </script>
+    <!-- copyright policy script -->
+  <script>
+    (function(){
+      const printBtn = document.getElementById('bv-print');
+      const downloadBtn = document.getElementById('bv-download');
+      const policyEl = document.getElementById('bv-copyright');
+
+      // Print policy
+      printBtn && printBtn.addEventListener('click', ()=>{
+        const w = window.open('', '_blank');
+        w.document.write('<html><head><title>BeeVerse Tales - Copyright & Content Policy</title></head><body>'+ policyEl.innerHTML +'</body></html>');
+        w.document.close();
+        w.print();
+      });
+
+      // Download policy
+      downloadBtn && downloadBtn.addEventListener('click', ()=>{
+        const text = Array.from(policyEl.querySelectorAll('h2,h3,li,p')).map(n=>n.innerText).join('\n\n');
+        const blob = new Blob([text], {type:'text/plain'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; 
+        a.download = 'BeeVerseTales_Copyright_Policy.txt';
+        document.body.appendChild(a); 
+        a.click(); 
+        a.remove(); 
+        URL.revokeObjectURL(url);
+      });
+    })();
+  </script>
+
 
 </body>
 </html>
